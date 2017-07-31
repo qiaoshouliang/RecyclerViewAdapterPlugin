@@ -29,6 +29,9 @@ public class ${NAME} extends android.support.v7.widget.RecyclerView.Adapter<${NA
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final ${DATA_SOURCE} entity = mDataList.get(position);
+
+        //TODO: add your code
+
         com.jakewharton.rxbinding2.view.RxView.clicks(holder.mBinding.getRoot()).throttleFirst(1, java.util.concurrent.TimeUnit.SECONDS).subscribe(o -> {
             if (clickListener != null)
                 clickListener.onClick(holder.mBinding.getRoot(), position);
