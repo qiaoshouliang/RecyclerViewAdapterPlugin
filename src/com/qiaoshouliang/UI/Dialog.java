@@ -1,6 +1,7 @@
 package com.qiaoshouliang.UI;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.wm.WindowManager;
 import com.qiaoshouliang.WriteCommand.CreateAdapter;
 
 import javax.swing.*;
@@ -21,7 +22,9 @@ public class Dialog extends JDialog {
 
         this.e = e;
         setMinimumSize(new Dimension(303,176));
-        setLocationRelativeTo(null);
+//        setLocationRelativeTo(null);
+        setLocationRelativeTo(WindowManager.getInstance().getFrame(e.getProject()));
+
         setTitle("New RecyclerViewAdapter");
         setContentPane(contentPane);
         setModal(true);
