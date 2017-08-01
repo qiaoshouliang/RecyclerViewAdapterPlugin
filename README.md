@@ -33,6 +33,8 @@ dependencies {
 - right click directory in which you want to create adapter file
 - select new -> CreateAdapter
 
+![](https://github.com/qiaoshouliang/RecyclerViewAdapterPlugin/blob/master/Image/2.gif)
+
 
 
 
