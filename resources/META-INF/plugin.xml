@@ -1,12 +1,12 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>com.qiaoshouliang.CreateAdapter</id>
+  <name>CreateAdapterPlugin</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="qiaoshouliang@126.com.com" url="https://github.com/qiaoshouliang/RecyclerViewAdapterPlugin">Centling</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+     A plugin that helps you to create RecyclerView Adapter with DataBinding.
+        For more detail see the link below.
     ]]></description>
 
   <change-notes><![CDATA[
@@ -20,9 +20,9 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
+  <!-- uncomment to enable plugin in all products -->
   <depends>com.intellij.modules.lang</depends>
-  -->
+
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
@@ -30,8 +30,8 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="com.qiaoshouliang.CreateAdapterAction" class="com.qiaoshouliang.action.CreateAdapterAction"
-            text="CreateAdapterAction" description="CreateAdapterAction">
+    <action id="com.qiaoshouliang.CreateAdapterAction" class="com.qiaoshouliang.action.CreateAdapterAction" icon="/icons/icon_a.png"
+            text="CreateAdapter" description="CreateAdapterAction">
       <add-to-group group-id="NewGroup" anchor="first"/>
     </action>
   </actions>
