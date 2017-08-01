@@ -1,7 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")
 package ${PACKAGE_NAME};
 #end
-
+import ${PACKAGE}.databinding.${BINDING};
 /**
  * Author: ${USER}
  * Created on ${DATE}
@@ -21,7 +21,7 @@ public class ${NAME} extends android.support.v7.widget.RecyclerView.Adapter<${NA
 
     @Override
     public ViewHolder onCreateViewHolder(android.view.ViewGroup parent, int viewType) {
-        ${PACKAGE}.databinding.${BINDING} binding = android.databinding.DataBindingUtil.inflate(android.view.LayoutInflater.from(mContext),
+        ${BINDING} binding = android.databinding.DataBindingUtil.inflate(android.view.LayoutInflater.from(mContext),
         ${PACKAGE}.R.layout.${LAYOUT}, parent, false);
         return new ViewHolder(binding);
     }

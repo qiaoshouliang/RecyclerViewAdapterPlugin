@@ -77,17 +77,18 @@ public class CreateAdapter extends WriteCommandAction.Simple {
 
 
         String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                "<layout>\n" +
-                "\n" +
-                "    <LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
-                "        xmlns:tools=\"http://schemas.android.com/tools\"\n" +
-                "        android:layout_width=\"wrap_content\"\n" +
-                "        android:layout_height=\"wrap_content\"\n" +
-                "        android:gravity=\"center_horizontal\"\n" +
-                "        android:orientation=\"vertical\">\n" +
-                "\n" +
+                "<layout xmlns:android=\"http://schemas.android.com/apk/res/android\">\n" +
+                "    <LinearLayout \n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:layout_height=\"match_parent\">\n" +
+                "        <TextView\n" +
+                "            android:id=\"@+id/text\"\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:layout_height=\"wrap_content\"\n" +
+                "            android:text=\"@string/app_name\"/>\n" +
                 "    </LinearLayout>\n" +
-                "</layout>\n";
+                "</layout>\n" +
+                "\n";
 
 
         VirtualFile virtualFile = VirtualFileUtil.createFolderIfNotExist(project);
@@ -95,12 +96,16 @@ public class CreateAdapter extends WriteCommandAction.Simple {
 
         PsiClass psiClass = directoryService.createClass(directory, fileName, "RecyclerViewAdapter", false, map);
         PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
+
+
         PsiClass dateSourceClass = PsiClassUtil.getPsiClassByName(project, sourceName);
+        PsiImportStatement sourceImport = factory.createImportStatement(dateSourceClass);
 
-        PsiImportStatement importStatement = factory.createImportStatement(dateSourceClass);
+//        PsiClass bindingClass = PsiClassUtil.getPsiClassByName(project, binding);
+//        PsiImportStatement bindingImport = factory.createImportStatement(bindingClass);
 
-        ((PsiJavaFile) psiClass.getContainingFile()).getImportList().add(importStatement);
-
+        ((PsiJavaFile) psiClass.getContainingFile()).getImportList().add(sourceImport);
+//        ((PsiJavaFile) psiClass.getContainingFile()).getImportList().add(bindingImport);
         JavaCodeStyleManager styleManager = JavaCodeStyleManager.getInstance(project);
         styleManager.optimizeImports(psiClass.getContainingFile());
         styleManager.shortenClassReferences(psiClass);
